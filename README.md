@@ -10,11 +10,19 @@
 - 上傳照片進行辨識
 - 顯示辨識結果
 
+**初始頁面**
+
+<img width="600" height="300" src="./src/homepage.png"/>
+
+**顯示結果**
+
+<img width="600" height="400" src="./src/result.png"/>
+
 ## About the Model
 我是使用PyTorch透過ImageNet預訓練好的ResNet50，這個模型的辨識類別共有1000類，詳細的說明可查閱[相關文件](https://pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html)。由於是使用PyTorch提供的模型，所以可以直接在程式中載入。
 
 ## Project Structure
-![Project Structure](https://hackmd.io/_uploads/Skhn_z3ba.png =50%x)
+<img width="300" height="500" src="./src/project-structure.png"/>
 
 - static資料夾中用來放辨識影像
 - templates資料用來放所有html檔
@@ -31,3 +39,17 @@
 - **allow_file():** 用來確認影像的副檔名是否為jpg, jpeg, png。
 - **homeapge():** 用來呼叫初始頁面（```home.html```），其url設定為```/```
 - **predict():** 用來辨識影像的類別，並將辨識結果傳至```predict.html```。
+  
+## home.html
+用來呈現我們辨識API的初始頁面，我們會接收到從user中上傳的input，也就是要辨識的影像。
+
+## predict.html
+這是辨識API的result page。當在初始頁面按下```predict```按鈕時，會將影像傳到```app.py```中的```predict()```進行處理及辨識。最後將結果呈現在這個頁面。
+
+## Output Screen
+執行```app.py```之後，在terminal或cmd會得到這個```output```
+
+<img width="600" height="200" src="./src/output.png"/>
+
+接著複製url，並貼上瀏覽器。接著將影像上傳至初始頁面，並按下```predict```按鈕。模型就會開始進行辨識，最後將結果呈現在頁面上囉！
+
